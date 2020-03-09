@@ -3,7 +3,6 @@ from model.project import Project
 
 def test_create_project(app, orm):
     old_projects = orm.get_projects_list()
-    app.session.login("administrator", "root")
     new_project = Project(project_name='project_name',
                           status='release',
                           inherit_global=True,

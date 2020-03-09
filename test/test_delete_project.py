@@ -2,13 +2,12 @@ from model.project import Project
 
 
 def test_delete_first_project(app, orm):
-    app.session.login("administrator", "root")
     if len(orm.get_projects_list()) == 0:
-        new_project = Project(project_name='project_name',
+        new_project = Project(project_name='project_name1',
                               status='release',
                               inherit_global=True,
                               view_status='private',
-                              description='description')
+                              description='description2')
         app.project.create(new_project)
     old_projects = orm.get_projects_list()
     app.project.delete()
